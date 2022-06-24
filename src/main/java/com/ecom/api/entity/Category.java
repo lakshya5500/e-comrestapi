@@ -1,12 +1,15 @@
 package com.ecom.api.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Category {
 	
     @Id
+    
 	String subcat;
 	String cat;
 	String imgUrl;

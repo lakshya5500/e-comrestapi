@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ecom.api.entity.Admin;
 import com.ecom.api.entity.Cart;
 import com.ecom.api.entity.Category;
+import com.ecom.api.entity.NewUser;
 import com.ecom.api.entity.Product;
 import com.ecom.api.service.MainService;
 
@@ -44,6 +46,10 @@ public class MyRestController {
 		return mainService.saveProduct(product);
 	}
 
+//	@PutMapping("product/{pid}")
+//	public Product updateProductByid(@PathVariable("pid")Product prod) {
+//		return mainService.updateProducts(prod);
+//	}
 	@GetMapping("product/{pid}")
 	Optional<Product> getProductByid(@PathVariable("pid") Integer pid) {
 		return mainService.getProductbyid(pid);
@@ -63,6 +69,23 @@ public class MyRestController {
 	public Cart saveCart(@PathVariable Cart cart) {
 		return mainService.saveAllProduct(cart);
 	}
+	
+	@PostMapping("/signup")
+	public NewUser saveUsers(@PathVariable NewUser user) {
+		return mainService.saveusers(user);
+	}
+	
+	
+	
+	
+	//===============For Admin Methods =============
+	
+	@GetMapping("/admin")
+	public List<Admin> getdetails() {
+		return mainService.findAllAdmin();
+	}
+	
+	
 	
 	// for Query Value fetch
 
