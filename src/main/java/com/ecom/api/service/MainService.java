@@ -31,8 +31,8 @@ public class MainService {
 	@Autowired
 	AdminRepo adminRepo;
 
-	//========For Category Get and Post Methods=============
-	
+	// ========For Category Get and Post Methods=============
+
 	public List<Category> findCategory() {
 		return categoryRepo.findAll();
 	}
@@ -60,8 +60,6 @@ public class MainService {
 		return null;
 	}
 
-	
-	
 	/**/
 //for query fetch 
 	public List<Product> getmobile() {
@@ -76,21 +74,28 @@ public class MainService {
 		return productRepo.findByac();
 	}
 
-	//=====for cart ====methods==========
+	// =====for cart ====methods==========
 	public List<Cart> details() {
 		return cartRepo.findAll();
 	}
+
 	public Cart saveAllProduct(Cart cart) {
 		Product c = cart.getProduct();
 		cartRepo.save(cart);
 		return cart;
 	}
-	
-	//========FOR USERS METHODS ===============
+
+	// ========FOR USERS METHODS ===============
 	public NewUser saveusers(NewUser user) {
 
 		return userRepo.save(user);
 	}
+
+	public List<NewUser> findAllUsers() {
+
+		return userRepo.findAll();
+	}
+
 //========FOR ADMIN METHODS ===============
 	public List<Admin> findAllAdmin() {
 

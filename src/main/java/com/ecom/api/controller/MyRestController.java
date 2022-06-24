@@ -46,10 +46,7 @@ public class MyRestController {
 		return mainService.saveProduct(product);
 	}
 
-//	@PutMapping("product/{pid}")
-//	public Product updateProductByid(@PathVariable("pid")Product prod) {
-//		return mainService.updateProducts(prod);
-//	}
+
 	@GetMapping("product/{pid}")
 	Optional<Product> getProductByid(@PathVariable("pid") Integer pid) {
 		return mainService.getProductbyid(pid);
@@ -69,14 +66,16 @@ public class MyRestController {
 	public Cart saveCart(@PathVariable Cart cart) {
 		return mainService.saveAllProduct(cart);
 	}
+	//==========FOR USERS =====================
 	
+	@GetMapping("/users")
+	public List<NewUser> getAllUsers(){
+		return mainService.findAllUsers();
+	}
 	@PostMapping("/signup")
-	public NewUser saveUsers(@PathVariable NewUser user) {
+	public NewUser saveUsers(@RequestBody NewUser user) {
 		return mainService.saveusers(user);
 	}
-	
-	
-	
 	
 	//===============For Admin Methods =============
 	
@@ -84,8 +83,6 @@ public class MyRestController {
 	public List<Admin> getdetails() {
 		return mainService.findAllAdmin();
 	}
-	
-	
 	
 	// for Query Value fetch
 
