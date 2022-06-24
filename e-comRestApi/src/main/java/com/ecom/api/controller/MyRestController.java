@@ -17,6 +17,7 @@ import com.ecom.api.entity.Product;
 import com.ecom.api.service.MainService;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class MyRestController {
 
 	@Autowired
