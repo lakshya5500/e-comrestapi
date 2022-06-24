@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ecom.api.entity.Admin;
@@ -79,6 +80,10 @@ public class MyRestController {
 	
 	//===============For Admin Methods =============
 	
+	@PostMapping("/signin")
+	public List<NewUser> userSignin(@RequestParam String username, String password) {
+		return mainService.signin(username,password);
+	}
 	@GetMapping("/admin")
 	public List<Admin> getdetails() {
 		return mainService.findAllAdmin();

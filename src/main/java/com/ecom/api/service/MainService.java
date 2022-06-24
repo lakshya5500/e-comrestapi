@@ -102,6 +102,12 @@ public class MainService {
 		return adminRepo.findAll();
 	}
 
+	public List<NewUser> signin(String username, String password) {
+		
+		return userRepo.FindByUsernameOrPassword(username,password);
+		
+	}
+
 //	public Product updateProducts(Product prod) {
 //		
 //		return productRepo.save(prod);
