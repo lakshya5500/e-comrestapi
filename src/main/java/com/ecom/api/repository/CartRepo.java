@@ -8,5 +8,5 @@ import com.ecom.api.entity.Cart;
 
 public interface CartRepo extends JpaRepository<Cart, Integer> {
 
-	//Cart findByProduct(String prod);
+	
 }

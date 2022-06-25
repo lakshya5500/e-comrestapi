@@ -67,10 +67,15 @@ public class MainService {
 	}
 
 	public Cart saveAllProduct(Cart cart) {
-		Product c = cart.getProduct();
+		 //cart.getProduct();
 		cartRepo.save(cart);
 		return cart;
 	}
+	public Cart deleteCart(Integer id) {
+		cartRepo.deleteById(id);
+		return null;
+	}
+	
 
 	// ========FOR USERS METHODS ===============
 	public NewUser saveusers(NewUser user) {
@@ -105,6 +110,8 @@ public class MainService {
 		public List<Product> getac() {
 			return productRepo.findByac();
 		}
+
+		
 
 
 
