@@ -18,6 +18,7 @@ import com.ecom.api.entity.Cart;
 import com.ecom.api.entity.Category;
 import com.ecom.api.entity.NewUser;
 import com.ecom.api.entity.Product;
+import com.ecom.api.repository.UserRepo;
 import com.ecom.api.service.MainService;
 
 @RestController
@@ -26,7 +27,10 @@ public class MyRestController {
 
 	@Autowired
 	MainService mainService;
+	@Autowired
+	UserRepo userRepo;
 
+	// ========For Category Get and Post Methods=============
 	@GetMapping("category")
 	public List<Category> getCategories() {
 		return mainService.findCategory();
@@ -37,6 +41,7 @@ public class MyRestController {
 		return mainService.saveCategory(category);
 	}
 
+	// ========For PRODUCT Get and Post Methods=============
 	@GetMapping("product")
 	public List<Product> getProducts() {
 		return mainService.findProducts();
@@ -46,7 +51,6 @@ public class MyRestController {
 	public Product saveProducts(@RequestBody Product product) {
 		return mainService.saveProduct(product);
 	}
-
 
 	@GetMapping("product/{pid}")
 	Optional<Product> getProductByid(@PathVariable("pid") Integer pid) {
@@ -58,37 +62,37 @@ public class MyRestController {
 		return mainService.deleteProduct(pid);
 	}
 
+	// =====for cart ====methods==========
 	@GetMapping("/cart")
 	public List<Cart> bill() {
 		return mainService.details();
 	}
-	
+
 	@PostMapping("/cart")
 	public Cart saveCart(@PathVariable Cart cart) {
 		return mainService.saveAllProduct(cart);
 	}
-	//==========FOR USERS =====================
-	
+	// ==========FOR USERS =====================
+
 	@GetMapping("/users")
-	public List<NewUser> getAllUsers(){
+	public List<NewUser> getAllUsers() {
 		return mainService.findAllUsers();
 	}
+
 	@PostMapping("/signup")
 	public NewUser saveUsers(@RequestBody NewUser user) {
 		return mainService.saveusers(user);
 	}
+
+	// ===============For Admin Methods =============
+
 	
-	//===============For Admin Methods =============
-	
-	@PostMapping("/signin")
-	public List<NewUser> userSignin(@RequestParam String username, String password) {
-		return mainService.signin(username,password);
-	}
+
 	@GetMapping("/admin")
 	public List<Admin> getdetails() {
 		return mainService.findAllAdmin();
 	}
-	
+
 	// for Query Value fetch
 
 	@GetMapping("/product/mobile")

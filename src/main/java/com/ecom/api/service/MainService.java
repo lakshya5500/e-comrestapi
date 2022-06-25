@@ -60,20 +60,7 @@ public class MainService {
 		return null;
 	}
 
-	/**/
-//for query fetch 
-	public List<Product> getmobile() {
-		return productRepo.findBymobile();
-	}
-
-	public List<Product> getlaptop() {
-		return productRepo.findBylaptop();
-	}
-
-	public List<Product> getac() {
-		return productRepo.findByac();
-	}
-
+	
 	// =====for cart ====methods==========
 	public List<Cart> details() {
 		return cartRepo.findAll();
@@ -102,15 +89,23 @@ public class MainService {
 		return adminRepo.findAll();
 	}
 
-	public List<NewUser> signin(String username, String password) {
-		
-		return userRepo.FindByUsernameOrPassword(username,password);
-		
-	}
+	
+	  
+	 
+	
+	//for query fetch 
+		public List<Product> getmobile() {
+			return productRepo.findBymobile();
+		}
 
-//	public Product updateProducts(Product prod) {
-//		
-//		return productRepo.save(prod);
-//	}
+		public List<Product> getlaptop() {
+			return productRepo.findBylaptop();
+		}
+
+		public List<Product> getac() {
+			return productRepo.findByac();
+		}
+
+
 
 }

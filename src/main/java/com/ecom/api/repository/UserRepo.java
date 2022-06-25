@@ -7,12 +7,10 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.ecom.api.entity.NewUser;
 
-public interface UserRepo extends JpaRepository<NewUser, Integer> {
+public interface UserRepo extends JpaRepository<NewUser, String> {
 
-	NewUser findByEmail(String email);
+	//NewUser FindByEmailAndPassword(NewUser email, NewUser password);
 
-	NewUser findByPassword(String password);
-
-	List<NewUser> FindByUsernameOrPassword(String username, String password);
+	
 
 }
