@@ -9,7 +9,7 @@ import com.ecom.api.entity.NewUser;
 
 public interface UserRepo extends JpaRepository<NewUser, String> {
 
-	//NewUser FindByEmailAndPassword(NewUser email, NewUser password);
+	
 
 	
 

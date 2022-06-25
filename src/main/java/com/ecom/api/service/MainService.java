@@ -11,6 +11,7 @@ import com.ecom.api.entity.Cart;
 import com.ecom.api.entity.Category;
 import com.ecom.api.entity.NewUser;
 import com.ecom.api.entity.Product;
+import com.ecom.api.exception.CustomException;
 import com.ecom.api.repository.AdminRepo;
 import com.ecom.api.repository.CartRepo;
 import com.ecom.api.repository.CategoryRepo;
@@ -110,9 +111,6 @@ public class MainService {
 		public List<Product> getac() {
 			return productRepo.findByac();
 		}
-
-		
-
 
 
 }

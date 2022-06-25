@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +18,8 @@ import com.ecom.api.entity.Cart;
 import com.ecom.api.entity.Category;
 import com.ecom.api.entity.NewUser;
 import com.ecom.api.entity.Product;
+import com.ecom.api.exception.CustomException;
+import com.ecom.api.repository.AdminRepo;
 import com.ecom.api.repository.UserRepo;
 import com.ecom.api.service.MainService;
 
@@ -30,6 +31,8 @@ public class MyRestController {
 	MainService mainService;
 	@Autowired
 	UserRepo userRepo;
+	@Autowired
+	AdminRepo adminRepo;
 
 	// ========For Category Get and Post Methods=============
 	@GetMapping("category")
@@ -73,12 +76,12 @@ public class MyRestController {
 	public Cart saveCart(@RequestBody Cart cart) {
 		return mainService.saveAllProduct(cart);
 	}
+
 	@DeleteMapping("/cart/{id}")
 	public Cart deleteCartById(@PathVariable("id") Integer id, Cart cart) {
 		return mainService.deleteCart(id);
 	}
-	
-	
+
 	// ==========FOR USERS =====================
 
 	@GetMapping("/users")
@@ -92,8 +95,23 @@ public class MyRestController {
 	}
 
 	// ===============For Admin Methods =============
-
-	
+	@PostMapping("/signin")
+	public List<Admin> findByUserNameOrPassword(@RequestParam String email, String password) {
+		try {
+			
+			
+				return adminRepo.findByEmailAndPassword(email, password);
+			
+		} catch (CustomException e) {
+			e.printStackTrace();
+			
+		}
+		return adminRepo.findAll();
+	}
+	@PostMapping("/admin")
+	public Admin saveAdmin(@RequestBody Admin admin) {
+		return adminRepo.save(admin);
+	}
 
 	@GetMapping("/admin")
 	public List<Admin> getdetails() {
