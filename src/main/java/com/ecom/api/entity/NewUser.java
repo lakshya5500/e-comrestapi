@@ -8,7 +8,6 @@ import javax.persistence.Id;
 @Entity
 public class NewUser {
 	
-	int id;
 	String name;
 	String username;
 	@Id
@@ -16,12 +15,7 @@ public class NewUser {
 	String password;
 	public NewUser() {
 		}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -46,9 +40,9 @@ public class NewUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public NewUser(int id, String name, String username, String email, String password) {
+	public NewUser(String name, String username, String email, String password) {
 		super();
-		this.id = id;
+		
 		this.name = name;
 		this.username = username;
 		this.email = email;
@@ -56,7 +50,7 @@ public class NewUser {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", username=" + username + ", email=" + email + ", password="
+		return "User [name=" + name + ", username=" + username + ", email=" + email + ", password="
 				+ password + "]";
 	}
 	
