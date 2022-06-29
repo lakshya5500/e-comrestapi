@@ -8,6 +8,7 @@ import javax.persistence.Id;
 @Entity
 public class NewUser {
 	
+		
 	String name;
 	String username;
 	@Id
