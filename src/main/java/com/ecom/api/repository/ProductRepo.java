@@ -12,11 +12,11 @@ import com.ecom.api.entity.Product;
 @Repository
 public interface ProductRepo extends JpaRepository<Product, Integer> {
 	
-		@Query(value = "SELECT * FROM product where category_subcat='mobile'",nativeQuery = true)
+		@Query(value = "SELECT * FROM product where category_subcat='Mobile'",nativeQuery = true)
 		public List<Product> findBymobile(); 
-		@Query(value = "SELECT * FROM product where category_subcat='laptop'",nativeQuery = true)
+		@Query(value = "SELECT * FROM product where category_subcat='Laptop'",nativeQuery = true)
 		public List<Product> findBylaptop(); 
-		@Query(value = "SELECT * FROM product where category_subcat='ac'",nativeQuery = true)
+		@Query(value = "SELECT * FROM product where category_subcat='Ac'",nativeQuery = true)
 		public List<Product> findByac(); 
 		
 		//Product findByProduct(Product prod);
