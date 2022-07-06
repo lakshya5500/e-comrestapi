@@ -95,18 +95,12 @@ public class MyRestController {
 	}
 
 	// ===============For Admin Methods =============
+	
 	@PostMapping("/signin")
-	public List<Admin> findByUserNameOrPassword(@RequestParam String email, String password) {
-		try {
-			
-			
+	public Admin findByUserNameOrPassword(@RequestParam String email, String password) {	
 				return adminRepo.findByEmailAndPassword(email, password);
 			
-		} catch (CustomException e) {
-			e.printStackTrace();
-			
-		}
-		return adminRepo.findAll();
+		
 	}
 	@PostMapping("/admin")
 	public Admin saveAdmin(@RequestBody Admin admin) {
